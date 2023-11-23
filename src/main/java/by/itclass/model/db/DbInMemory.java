@@ -4,6 +4,7 @@ import by.itclass.model.entitty.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DbInMemory {
     private static List<User> users = new ArrayList<>();
@@ -17,5 +18,18 @@ public class DbInMemory {
     public static boolean isContainsInDb(String fio){
         return users.stream()
                 .anyMatch(it->fio.equalsIgnoreCase(it.getFio()));
+    }
+
+    public static User findUserByName(String name){
+       return users.stream()
+                .filter(it->it.getFio().equalsIgnoreCase(name))
+                .findFirst() // возвращает optional
+                .orElse(null);
+    }
+
+    public static List<User> findUsersByIds(int from, int to){
+        return users.stream()
+                .filter(it->it.getId() >= from && it.getId() <= to)
+                .collect(Collectors.toList());
     }
 }

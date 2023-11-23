@@ -22,6 +22,7 @@ public class SearchController extends HttpServlet {
         } else {
             rd = req.getRequestDispatcher("/pages/no.html");
         }
+
         rd.forward(req,resp); // по цепочке работает
 
     }

@@ -5,10 +5,27 @@
     <title>Search page</title>
 </head>
 <body>
-    <h1>Search Form</h1>
+    <h1>Simple Search Form</h1>
     <form action="/search" method="get">
         FIO: <input name="fio"><br>
         <input type="submit" value="Search...">
+    </form>
+    <br>
+    <h1>Jsp Search Form</h1>
+    <form action="/jspSearch" method="get">
+        FIO: <input name="fio"><br>
+        <input type="submit" value="Find...">
+    </form>
+    <br>
+    <h1>Multiple Parameters  Search Form</h1>
+    <form action="/criteria" method="post">
+        Seargh by: <br>
+        name <input type="radio" name="criteria" value="name" checked>
+        id <input type="radio" name="criteria" value="id"><br>
+        Name: <input name="fio"><br>
+        From Id:<input name="fromId"><br>
+        To Id:<input name="toId"><br>
+        <input type="submit" value="Get..">
     </form>
 </body>
 </html>
