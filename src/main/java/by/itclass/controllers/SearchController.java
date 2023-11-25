@@ -16,6 +16,7 @@ public class SearchController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fio = req.getParameter("fio");
         boolean isContains = DbInMemory.isContainsInDb(fio);
+        // создаем объект. Он   перенаправит наш запрос и ответ на какую-то страницу
         RequestDispatcher rd;
         if (isContains) {
             rd = req.getRequestDispatcher("/pages/yes.html");

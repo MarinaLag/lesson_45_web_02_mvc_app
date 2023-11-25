@@ -14,7 +14,7 @@ public class DbInMemory {
         users.add(new User(3, "Petr Petrov", "petr.petruha25@gmail.com"));
         users.add(new User(4, "Dima Medved", "dimon.bear@yandex.ru"));
     }
-
+//метод проверяет, есть ли такая фамилия
     public static boolean isContainsInDb(String fio){
         return users.stream()
                 .anyMatch(it->fio.equalsIgnoreCase(it.getFio()));
