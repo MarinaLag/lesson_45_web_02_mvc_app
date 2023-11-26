@@ -1,6 +1,6 @@
 package by.itclass.model.db;
 
-import by.itclass.model.entitty.User;
+import by.itclass.model.entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,16 +19,19 @@ public class DbInMemory {
         return users.stream()
                 .anyMatch(it->fio.equalsIgnoreCase(it.getFio()));
     }
-
+// метод возвращает сведения, взависимости от  фио
     public static User findUserByName(String name){
        return users.stream()
                 .filter(it->it.getFio().equalsIgnoreCase(name))
                 .findFirst() // возвращает optional
-                .orElse(null);
+                .orElse(null);// вернет null или user
     }
-
+// поиск по id
+// будет возвращать list
+// т.к. может быть много user входящих в данный  диапазон
     public static List<User> findUsersByIds(int from, int to){
         return users.stream()
+                // от ... до...
                 .filter(it->it.getId() >= from && it.getId() <= to)
                 .collect(Collectors.toList());
     }

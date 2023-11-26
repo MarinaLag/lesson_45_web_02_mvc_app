@@ -1,7 +1,7 @@
 package by.itclass.model.services;
 
 import by.itclass.model.db.DbInMemory;
-import by.itclass.model.entitty.User;
+import by.itclass.model.entities.User;
 
 import java.util.ArrayList;
 import java.util.List;

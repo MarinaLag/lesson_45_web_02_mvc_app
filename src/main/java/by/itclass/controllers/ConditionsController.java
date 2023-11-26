@@ -1,6 +1,6 @@
 package by.itclass.controllers;
 
-import by.itclass.model.entitty.User;
+import by.itclass.model.entities.User;
 import by.itclass.model.services.UserService;
 
 import javax.servlet.RequestDispatcher;
@@ -15,6 +15,7 @@ import java.util.Map;
 
 @WebServlet(name = "conditionsController", urlPatterns = "/criteria")
 public class ConditionsController extends HttpServlet {
+    //так не делают, но это пока для образца
     private UserService service;
 
     @Override

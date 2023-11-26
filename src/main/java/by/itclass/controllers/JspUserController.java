@@ -1,7 +1,7 @@
 package by.itclass.controllers;
 
 import by.itclass.model.db.DbInMemory;
-import by.itclass.model.entitty.User;
+import by.itclass.model.entities.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +20,7 @@ public class JspUserController extends HttpServlet {
         User user = DbInMemory.findUserByName(name); // вернет или пользователя или null
         RequestDispatcher rd = req.getRequestDispatcher("/jsp/user.jsp");
         if(Objects.nonNull(user)){   // если user не null
-            req.setAttribute("us", user);
+            req.setAttribute("us", user); //us - параметр
         }else {
             String message  = "User by name" + name + " is not found"; // некое сообщение
             req.setAttribute("mes",message);
