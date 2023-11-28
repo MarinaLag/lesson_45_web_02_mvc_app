@@ -1,6 +1,8 @@
+by\itclass\model\db\ConnectionManager.class
 by\itclass\controllers\SearchController.class
 by\itclass\model\services\UserService.class
-by\itclass\controllers\JspUserController.class
-by\itclass\model\db\DbInMemory.class
-by\itclass\model\entitty\User.class
 by\itclass\controllers\ConditionsController.class
+by\itclass\model\entities\User.class
+by\itclass\controllers\JspUserController.class
+by\itclass\model\dao\UserDao.class
+by\itclass\model\db\DbInMemory.class
