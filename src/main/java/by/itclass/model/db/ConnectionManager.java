@@ -15,7 +15,7 @@ public class ConnectionManager {
     private static Connection cn;
 
     static {
-        try {
+        try {// подключам драйвер
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

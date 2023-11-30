@@ -13,12 +13,13 @@ public class UserDao { // для работы с базой данных
     // private static final String Q1 = "SELECT id, fio, email FROM user WHERE fio LIKE ?";
     private static final String Q2 = "SELECT id, fio, email FROM user WHERE id>=? AND id<=?";
 
-    // ищет по имени
+    // ищет по имени,  нам нуже например 1 любой объект
     public User findUserByName(String name) {
         try (Connection cn = ConnectionManager.getConnection()) {
             Statement st = cn.createStatement();
             //  String query = "SELECT id, fio, email FROM user WHERE fio LIKE" + name;
             String query = String.format("SELECT id, fio, email FROM user WHERE fio LIKE '%s'", name);
+            // '%s' - '' делает строкой!!!!!
             ResultSet resultSet = st.executeQuery(query);
             if (resultSet.next()) { // if -  если хотим получить одного , если что-то есть,,,,
                 int id = resultSet.getInt("id");
@@ -31,6 +32,7 @@ public class UserDao { // для работы с базой данных
         return null;
     }
 
+    // ищет по id диапазону, может быть много объектов
     public List<User> findUsersByIds(int from, int to) {
         List<User> users = new ArrayList<>(); //если что вернет пустую коллекцию
         try (Connection cn = ConnectionManager.getConnection();
