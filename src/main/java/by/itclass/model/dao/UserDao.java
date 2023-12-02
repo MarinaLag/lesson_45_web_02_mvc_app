@@ -20,6 +20,8 @@ public class UserDao { // для работы с базой данных
             //  String query = "SELECT id, fio, email FROM user WHERE fio LIKE" + name;
             String query = String.format("SELECT id, fio, email FROM user WHERE fio LIKE '%s'", name);
             // '%s' - '' делает строкой!!!!!
+
+            //ResultSet - это тип виртуальной таблицы
             ResultSet resultSet = st.executeQuery(query);
             if (resultSet.next()) { // if -  если хотим получить одного , если что-то есть,,,,
                 int id = resultSet.getInt("id");
