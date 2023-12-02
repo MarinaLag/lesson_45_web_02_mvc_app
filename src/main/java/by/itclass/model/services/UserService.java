@@ -17,27 +17,26 @@ public class UserService {
         dao = new UserDao();
     }
 
-    public List<User> getUsersByCriteria(Map<String, String[]> params){
+    public List<User> getUsersByCriteria(Map<String, String[]> params) {
         List<User> users = new ArrayList<>();
-        String criteria = params.get("criteria") [0];
-        switch (criteria){
-            case "name":{
-             //   users.add(dao.findUserByName(params.get("fio")[0])); Сокращенный вариант
+        String criteria = params.get("criteria")[0];
+        switch (criteria) {
+            case "name": {
+                //   users.add(dao.findUserByName(params.get("fio")[0])); Сокращенный вариант
                 String name = params.get("fio")[0];
                 User user = dao.findUserByName(name);
                 users.add(user);
                 break;
             }
-            case "id":{
+            case "id": {
                 int from = Integer.parseInt(params.get("fromId")[0]);
                 int to = Integer.parseInt(params.get("toId")[0]);
-                users = dao.findUsersByIds(from,to);
+                users = dao.findUsersByIds(from, to);
                 break;
             }
         }
         return users;
     }
-
 
 
     // другой метод

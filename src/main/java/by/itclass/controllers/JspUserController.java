@@ -19,12 +19,12 @@ public class JspUserController extends HttpServlet {
         String name = req.getParameter("fio");
         User user = DbInMemory.findUserByName(name); // вернет или пользователя или null
         RequestDispatcher rd = req.getRequestDispatcher("/jsp/user.jsp");
-        if(Objects.nonNull(user)){   // если user не null
+        if (Objects.nonNull(user)) {   // если user не null
             req.setAttribute("us", user); //us - параметр
-        }else {
-            String message  = "User by name" + name + " is not found"; // некое сообщение
-            req.setAttribute("mes",message);
+        } else {
+            String message = "User by name" + name + " is not found"; // некое сообщение
+            req.setAttribute("mes", message);
         }
-        rd.forward(req,resp);
+        rd.forward(req, resp);
     }
 }

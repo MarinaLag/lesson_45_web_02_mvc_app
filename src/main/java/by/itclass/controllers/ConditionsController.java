@@ -29,12 +29,12 @@ public class ConditionsController extends HttpServlet {
 
         List<User> users = service.getUsersByCriteria(params);
 
-        if (!users.isEmpty()){ // если не пустая
+        if (!users.isEmpty()) { // если не пустая
             req.setAttribute("users", users);
-        }else {
+        } else {
             req.setAttribute("message", "Users is not found");
         }
         RequestDispatcher rd = req.getRequestDispatcher("/jsp/users.jsp");
-        rd.forward(req,resp);
+        rd.forward(req, resp);
     }
 }
